@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: black;
+}
+
+textarea{
+    resize: none;
+    background-color: rgb(63, 60, 60);
+    color: white;
+    padding: 10px;
+    margin-left: 20px;
+    border: 1px solid;
+}
+
+textarea:focus{
+    border: 2px solid;
+    border-color: rgb(0, 0, 0);
+    box-shadow: 3px 3px 8px rgb(144, 144, 144);
+    background-color: rgb(104, 99, 99);
+}
+
+.circle{
+    height: 30px;
+    width: 30px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.container{
+    display: flex;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.input-text{
+    display: flex;
+    align-items: center;
+}
+
+.grafo-area{
+    width: 100%;
+    margin: 20px;
+    padding: 10px;
+    border: solid;
+    border-color: white;
+}
