@@ -1,21 +1,11 @@
-class ReadSyntax{
-    constructor(textArea){
-        this.textArea = textArea;
-    }
-    
-    inputEvent(){
-        this.textArea.addEventListener('input', () => {
-            let updatedValue = this.textArea.value;
-            console.log(updatedValue);
-        })
-    }
-}
-
+import SyntaxAnalyzer from './class/SyntaxAnalyzer.class.mjs';
 
 
 document.addEventListener("DOMContentLoaded", () => {
     let inputArea = document.querySelector('textarea');
+    let syntaxAnalyzer = new SyntaxAnalyzer(inputArea);
 
-    let eventInp = new ReadSyntax(inputArea);
-    eventInp.inputEvent();
-})
+    inputArea.addEventListener('input', () => {
+        syntaxAnalyzer.analyzeSyntax();
+    });
+});
