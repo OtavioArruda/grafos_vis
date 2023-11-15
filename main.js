@@ -11,7 +11,7 @@ const createWindow = () => {
     });
 
     win.loadFile('index.html');
-}
+};
 
 app.whenReady().then(() => {
     createWindow();
@@ -19,4 +19,5 @@ app.whenReady().then(() => {
 
 try {
     require('electron-reloader')(module);
+// eslint-disable-next-line no-empty
 } catch {}
