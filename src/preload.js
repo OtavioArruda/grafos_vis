@@ -1,10 +1,50 @@
-window.addEventListener('DOMContentLoaded', () => {
-    const replaceText = (selector, text) => {
-        const element = document.getElementById(selector);
-        if (element) element.innerText = text;
-    };
+const cytoscape = require('cytoscape');
 
-    for(const dependency of ['chrome', 'node', 'electron']) {
-        replaceText(`${dependency}-version`, process.versions[dependency]);
-    }
+window.addEventListener('DOMContentLoaded', () => {
+    const conatinerCy = document.getElementById('cy');
+
+    console.log(conatinerCy);
+
+    cytoscape({
+        container: conatinerCy, // container to render in
+
+        elements: [ // list of graph elements to start with
+            { // node a
+                data: { id: 'a' }
+            },
+            { // node b
+                data: { id: 'b' }
+            },
+            { // edge ab
+                data: { id: 'ab', source: 'a', target: 'b' }
+            }
+        ],
+
+        style: [ // the stylesheet for the graph
+            {
+                selector: 'node',
+                style: {
+                    'background-color': '#666',
+                    'label': 'data(id)'
+                }
+            },
+
+            {
+                selector: 'edge',
+                style: {
+                    'width': 3,
+                    'line-color': '#ccc',
+                    'target-arrow-color': '#ccc',
+                    'target-arrow-shape': 'triangle',
+                    'curve-style': 'bezier'
+                }
+            }
+        ],
+
+        layout: {
+            name: 'grid',
+            rows: 1
+        }
+
+    });
 });
