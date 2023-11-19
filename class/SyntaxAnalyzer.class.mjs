@@ -43,23 +43,35 @@ class SyntaxAnalyzer {
                 break;
         }
 
-        // Teste para criação do dicionario apos a analise sintatica
-        let teste = [];
-        resultTokens = resultTokens[0];
-        for (let j = 0; j < resultTokens.length; j++) {
-            if (resultTokens[0].type === 'IDENTIFIER' && resultTokens[j].type === 'IDENTIFIER') {
-                let convertStr = resultTokens[j].value.toString();
-                preDictionary.push(convertStr);
-            }   
-            if (j !== 0 && resultTokens[j].type === 'IDENTIFIER') {
-                if (resultTokens[j-1].type === 'RIGHT_BRACKET') {
-                    teste.push(resultTokens[j].value.toString())
-                    preDictionary.splice(0, preDictionary.length - 1)
+        const constructDictionary = () => {
+            // Teste para criação do dicionario apos a analise sintatica
+            resultTokens = resultTokens[0];
+            let setResults = [];
+
+            for (let j = 0; j < resultTokens.length; j++) {
+                if (resultTokens[0].type === 'IDENTIFIER' && resultTokens[j].type === 'IDENTIFIER') {
+                    let convertStr = resultTokens[j].value.toString();
+                    preDictionary.push(convertStr);
+                }   
+                if (resultTokens[j].type === 'RIGHT_BRACKET') {
+                    let valuesDictionary = [];
+                    let key = preDictionary[0];
+                    if(preDictionary.length > 0){
+                        for (let j = 1; j < preDictionary.length; j++) {
+                            const vl = preDictionary[j];
+                            valuesDictionary.push(vl);
+                        }
+                    }
+                    let resultDictionary = {
+                        [key]: valuesDictionary
+                    }
+                    preDictionary.splice(0, preDictionary.length)
+                    setResults.push(resultDictionary);
                 }
-            }   
+            }
+            this.Dictionary(setResults);
         }
-        this.Dictionary(preDictionary);
-        //
+        constructDictionary();
     }
 
 
@@ -101,22 +113,8 @@ class SyntaxAnalyzer {
 
 
 
-    Dictionary(listTokens, valuesDictionary = []) {
-        let key = listTokens[0];
-        let dictionary = [];
-
-        if(listTokens.length > 0){
-            for (let j = 1; j < listTokens.length; j++) {
-                const vl = listTokens[j];
-                valuesDictionary.push(vl);
-            }
-        }
-        let resultDictionary = {
-            [key]: valuesDictionary
-        }
-
-        dictionary.push(resultDictionary);
-        console.log(dictionary);
+    Dictionary(valuesDictionary) {
+        console.log(valuesDictionary);
     }
 }
 
