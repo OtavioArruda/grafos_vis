@@ -2,9 +2,9 @@
     "name": "grafos_vis",
     "version": "1.0.0",
     "description": ".",
-    "main": "main.js",
+    "main": "./src/main.js",
     "scripts": {
-        "lint": "eslint *.js",
+        "lint": "eslint ./src/**/*.js",
         "start": "npm run lint && electron-forge start",
         "test": "echo \"Error: no test specified\" && exit 1",
         "package": "electron-forge package",
