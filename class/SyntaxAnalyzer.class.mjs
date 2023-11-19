@@ -1,4 +1,5 @@
 import Token from './Token.class.mjs';
+import Dictionary from './Dictionary.class.mjs';
 
 class SyntaxAnalyzer {
 
@@ -69,7 +70,8 @@ class SyntaxAnalyzer {
                     setResults.push(resultDictionary);
                 }
             }
-            this.Dictionary(setResults);
+            let graphResult = new Dictionary(setResults);
+            graphResult.constructGraph()
         }
         constructDictionary();
     }
@@ -111,11 +113,6 @@ class SyntaxAnalyzer {
         return tokens;
     }
 
-
-
-    Dictionary(valuesDictionary) {
-        console.log(valuesDictionary);
-    }
 }
 
 export default SyntaxAnalyzer;
