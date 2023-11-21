@@ -7,12 +7,6 @@ body{
     background-color: #060606;
 }
 
-#cy {
-    width: 400px;
-    height: 400px;
-    display: block;
-}
-
 textarea{
     resize: none;
     background-color: #545454;
