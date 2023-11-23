@@ -20,6 +20,7 @@ class Dictionary {
                     graphArr.push({
                         data: {
                             id: `${y}${z}`,
+                            weight: 1,
                             source: y,
                             target: z
                         }

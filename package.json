@@ -27,6 +27,7 @@
     },
     "dependencies": {
         "cytoscape": "^3.27.0",
+        "cytoscape-spread": "^3.0.0",
         "electron-squirrel-startup": "^1.0.0"
     }
 }
