@@ -26,9 +26,11 @@ module.exports = {
         'ecmaVersion': 'latest'
     },
     'rules': {
-        'indent': ['error', 4],
         'quotes': ['error', 'single'],
         'semi': ['error', 'always'],
-        '@stylistic/js/max-len': ['error', { 'code': 80 }]
+        '@stylistic/js/max-len': ['error', { 'code': 80 }],
+        '@stylistic/js/switch-colon-spacing': 'error',
+        '@stylistic/js/indent': ['error', 4, { 'SwitchCase': 1 }],
+        '@stylistic/js/no-trailing-spaces': 'error'
     }
 };

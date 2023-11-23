@@ -17,14 +17,22 @@ class SyntaxAnalyzer {
                 case 'ARROW':
                 case 'COMMA':
                 case 'RIGHT_BRACKET':
-                    tokens[i-1].type === 'IDENTIFIER' ? validateSyntax : validateSyntax.push(tokens[i]);
+                    tokens[i-1].type === 'IDENTIFIER' ?
+                        validateSyntax :
+                        validateSyntax.push(tokens[i]);
                     break;
                 case 'LEFT_BRACKET':
-                    tokens[i-1].type === 'ARROW' ? validateSyntax : validateSyntax.push(tokens[i]);
+                    tokens[i-1].type === 'ARROW' ?
+                        validateSyntax :
+                        validateSyntax.push(tokens[i]);
                     break;
                 case 'IDENTIFIER':
                     if(i != 0) {
-                        tokens[i-1].type === 'LEFT_BRACKET' || tokens[i-1].type === 'COMMA' || tokens[i-1].type === 'RIGHT_BRACKET' ? validateSyntax : validateSyntax.push(tokens[i]);
+                        tokens[i-1].type === 'LEFT_BRACKET' ||
+                        tokens[i-1].type === 'COMMA' ||
+                        tokens[i-1].type === 'RIGHT_BRACKET' ?
+                            validateSyntax :
+                            validateSyntax.push(tokens[i]);
                     }
                     break;
             }
@@ -48,7 +56,10 @@ class SyntaxAnalyzer {
         const setResults = [];
 
         for(let j = 0; j < resultTokens.length; j++) {
-            if(resultTokens[0].type === 'IDENTIFIER' && resultTokens[j].type === 'IDENTIFIER') {
+            if(
+                resultTokens[0].type === 'IDENTIFIER' &&
+                resultTokens[j].type === 'IDENTIFIER'
+            ) {
                 const convertStr = resultTokens[j].value.toString();
 
                 preDictionary.push(convertStr);

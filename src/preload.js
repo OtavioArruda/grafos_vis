@@ -1,6 +1,9 @@
 const cytoscape = require('cytoscape');
+const { startSyntaxAnalyzer } = require('./events.js');
 
 window.addEventListener('DOMContentLoaded', () => {
+    startSyntaxAnalyzer();
+
     const cyOptions = {
         name: 'breadthfirst',
         fit: true,

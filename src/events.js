@@ -10,6 +10,6 @@ const startSyntaxAnalyzer = () =>  {
 
         syntaxAnalyzer.analyzeSyntax();
     });
-}
+};
 
 module.exports = { startSyntaxAnalyzer };
