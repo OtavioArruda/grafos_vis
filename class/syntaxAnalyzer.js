@@ -26,6 +26,7 @@ class SyntaxAnalyzer {
                     if(i != 0) {
                         tokens[i-1].type === 'LEFT_BRACKET' || tokens[i-1].type === 'COMMA' || tokens[i-1].type === 'RIGHT_BRACKET' ? validateSyntax : validateSyntax.push(tokens[i]);
                     }
+                    break;
             }
         }
 
