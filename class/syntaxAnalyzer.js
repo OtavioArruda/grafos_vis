@@ -78,7 +78,7 @@ class SyntaxAnalyzer {
 
         const graphResult = new Dictionary(setResults);
 
-        graphResult.constructGraph();
+        graphResult.checkDuplicateKeys();
     }
 
     tokenize(input) {
