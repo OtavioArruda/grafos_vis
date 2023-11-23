@@ -2,8 +2,6 @@ const cytoscape = require('cytoscape');
 const { startSyntaxAnalyzer } = require('./events.js');
 
 window.addEventListener('DOMContentLoaded', () => {
-    startSyntaxAnalyzer();
-
     const cyOptions = {
         name: 'breadthfirst',
         fit: true,
@@ -28,21 +26,22 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const cy = cytoscape({
         container: document.getElementById('cy'),
-
-        elements: [
+        style: [
             {
-                data: { id: 'a' }
+                selector: 'node',
+                style: {
+                    'label': 'data(id)',
+                    'text-valign': 'center',
+                    'font-size': '11px',
+                    'color': 'white'
+                }
             },
-            {
-                data: { id: 'b' }
-            },
-            {
-                data: { id: 'ab', source: 'a', target: 'b' }
-            }
-        ]
+        ],
     });
 
     const cyLayout = cy.layout(cyOptions);
 
     cyLayout.run();
+
+    startSyntaxAnalyzer(cy, cyOptions);
 });

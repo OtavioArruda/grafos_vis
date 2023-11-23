@@ -47,7 +47,7 @@ class SyntaxAnalyzer {
                 break;
         }
 
-        this.constructDictionary(resultTokens[0]);
+        return this.constructDictionary(resultTokens[0]);
     }
 
     constructDictionary(resultTokens) {
@@ -89,7 +89,7 @@ class SyntaxAnalyzer {
 
         const graphResult = new Dictionary(setResults);
 
-        graphResult.constructGraph();
+        return graphResult.constructGraph();
     }
 
     tokenize(input) {

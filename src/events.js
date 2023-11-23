@@ -1,6 +1,6 @@
-const { SyntaxAnalyzer } = require('./class/syntaxAnalyzer.js');
+const { SyntaxAnalyzer } = require('./compiler/syntaxAnalyzer.js');
 
-const startSyntaxAnalyzer = () =>  {
+const startSyntaxAnalyzer = (cy, cyOptions) =>  {
     console.log('startSyntaxAnalyzer');
 
     const inputArea = document.querySelector('textarea');
@@ -8,7 +8,11 @@ const startSyntaxAnalyzer = () =>  {
     inputArea.addEventListener('input', () => {
         const syntaxAnalyzer = new SyntaxAnalyzer(inputArea.value);
 
-        syntaxAnalyzer.analyzeSyntax();
+        cy.json({ elements: syntaxAnalyzer.analyzeSyntax() });
+
+        const cyLayout = cy.elements().layout(cyOptions);
+
+        cyLayout.run();
     });
 };
 

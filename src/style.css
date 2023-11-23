@@ -34,12 +34,13 @@ textarea:focus{
 }
 
 .input-text{
+    width: 200px;
     display: flex;
     align-items: center;
 }
 
 .grafo-area{
-    width: 100%;
+    flex: 1 1 auto;
     height: 100vh;
     margin-left: 20px;
     background-color: #202020;
