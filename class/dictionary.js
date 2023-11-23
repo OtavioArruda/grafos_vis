@@ -7,5 +7,5 @@ class Dictionary {
         console.log(this.valuesDictionary);
     }
 }
-
+//teste
 module.exports = { Dictionary };
