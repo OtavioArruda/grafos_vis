@@ -1,10 +1,5 @@
-window.addEventListener('DOMContentLoaded', () => {
-    const replaceText = (selector, text) => {
-        const element = document.getElementById(selector);
-        if (element) element.innerText = text;
-    }
+const { startSyntaxAnalyzer } = require('./events.js')
 
-    for(const dependency of ['chrome', 'node', 'electron']) {
-        replaceText(`${dependency}-version`, process.versions[dependency]);
-    }
+window.addEventListener('DOMContentLoaded', () => {
+    startSyntaxAnalyzer();
 })

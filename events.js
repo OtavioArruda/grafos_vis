@@ -1,10 +1,15 @@
-import SyntaxAnalyzer from './class/SyntaxAnalyzer.class.mjs';
+const { SyntaxAnalyzer } = require('./class/syntaxAnalyzer.js');
 
-document.addEventListener("DOMContentLoaded", () => {
-    let inputArea = document.querySelector('textarea');
-    
+const startSyntaxAnalyzer = () =>  {
+    console.log('startSyntaxAnalyzer');
+
+    const inputArea = document.querySelector('textarea');
+
     inputArea.addEventListener('input', () => {
-        let syntaxAnalyzer = new SyntaxAnalyzer(inputArea.value);
+        const syntaxAnalyzer = new SyntaxAnalyzer(inputArea.value);
+
         syntaxAnalyzer.analyzeSyntax();
     });
-});
+}
+
+module.exports = { startSyntaxAnalyzer };

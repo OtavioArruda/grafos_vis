@@ -1,13 +1,11 @@
 class Dictionary {
-
-    constructor(valuesDictionary){
+    constructor(valuesDictionary) {
         this.valuesDictionary = valuesDictionary;
     }
 
-
-    constructGraph(){
+    constructGraph() {
         console.log(this.valuesDictionary);
     }
 }
 
-export default Dictionary;
+module.exports = { Dictionary };

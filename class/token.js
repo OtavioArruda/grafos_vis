@@ -5,4 +5,4 @@ class Token {
     }
 }
 
-export default Token;
+module.exports = { Token };
