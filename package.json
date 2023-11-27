@@ -26,6 +26,10 @@
         "eslint": "^8.53.0"
     },
     "dependencies": {
+        "@codemirror/commands": "^6.3.0",
+        "@codemirror/state": "^6.3.1",
+        "@codemirror/theme-one-dark": "^6.1.2",
+        "@codemirror/view": "^6.22.0",
         "cytoscape": "^3.27.0",
         "cytoscape-spread": "^3.0.0",
         "electron-squirrel-startup": "^1.0.0"

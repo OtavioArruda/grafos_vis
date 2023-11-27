@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const cytoscape = require('cytoscape');
 const spread = require('cytoscape-spread');
 const { startSyntaxAnalyzer } = require('./events.js');
@@ -5,6 +6,10 @@ const { startSyntaxAnalyzer } = require('./events.js');
 spread(cytoscape);
 
 window.addEventListener('DOMContentLoaded', () => {
+    const { EditorState } = require('@codemirror/state');
+    const { EditorView, keymap, lineNumbers } = require('@codemirror/view');
+    const { defaultKeymap } = require('@codemirror/commands');
+    const { oneDarkTheme } = require('@codemirror/theme-one-dark');
 
     const cyOptions = {
         name: 'cose',
@@ -114,5 +119,52 @@ window.addEventListener('DOMContentLoaded', () => {
 
     cyLayout.run();
 
-    startSyntaxAnalyzer(cy, cyOptions);
+    // startSyntaxAnalyzer(cy, cyOptions);
+
+
+    const myTheme = EditorView.theme({
+        '&': {
+            color: 'white',
+            backgroundColor: '#23272e',
+            padding: '10px',
+            width: '95%',
+            height: '90%',
+        },
+        '.cm-content': {
+            caretColor: '#0e9',
+            backgroundColor: '#23272e'
+        },
+        '&.cm-focused .cm-cursor': {
+            borderLeftColor: '#0e9'
+        },
+        '&.cm-focused .cm-selectionBackground, ::selection': {
+            backgroundColor: '#074'
+        },
+        '.cm-gutters': {
+            backgroundColor: '#23272e',
+            color: '#ddd',
+            'border-right': '1px solid #404040'
+        },
+        '.cm-gutterElement': {
+            'text-align': 'center !important'
+        }
+    }, { dark: true });
+
+    const startState = EditorState.create({
+        doc: 'Hello World',
+        extensions: [
+            keymap.of(defaultKeymap),
+            lineNumbers(),
+            // oneDarkTheme,
+            myTheme
+
+        ]
+    });
+
+    const view = new EditorView({
+        state: startState,
+        parent: document.getElementById('input-text')
+    });
+
+    console.log(view);
 });

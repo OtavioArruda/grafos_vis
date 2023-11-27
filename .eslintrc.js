@@ -28,7 +28,7 @@ module.exports = {
     'rules': {
         'quotes': ['error', 'single'],
         'semi': ['error', 'always'],
-        '@stylistic/js/max-len': ['error', { 'code': 80 }],
+        '@stylistic/js/max-len': ['error', { 'code': 100 }],
         '@stylistic/js/switch-colon-spacing': 'error',
         '@stylistic/js/indent': ['error', 4, { 'SwitchCase': 1 }],
         '@stylistic/js/no-trailing-spaces': 'error'
